@@ -6,9 +6,9 @@ import java.util.Scanner;
 
 import com.rollingstone.arrays.model.ParkedCar;
 
-public class StreetParallelParkingWithArrays {
+public class MultipleStreetParallelParkingWithArrays {
 
-  static ParkedCar[] parkedCars = new ParkedCar[3];
+  static ParkedCar[][] parkedCars = new ParkedCar[3][3];
 
   public static void main(String[] args) {
 
@@ -52,6 +52,7 @@ public class StreetParallelParkingWithArrays {
     String color = "";
     String cont = "";
     int carParkingSpot = 0;
+    int streetNumber = 0;
     ParkedCar p = null;
     do {
       System.out.println("Enter a plate number: ");
@@ -63,7 +64,7 @@ public class StreetParallelParkingWithArrays {
       p.setEntryTime(LocalDateTime.now());
 
       if (carParkingSpot < 20) {
-        parkedCars[carParkingSpot++] = p;
+        parkedCars[carParkingSpot++][streetNumber++] = p;
         System.out.println("Filled parking spot : " + (carParkingSpot - 1));
         System.out.println("Next parking spot : " + carParkingSpot);
       } else {
@@ -85,9 +86,11 @@ public class StreetParallelParkingWithArrays {
     plateNumber = input.nextLine();
 
     for (int i = 0; i < parkedCars.length; i++) {
-      if (parkedCars[i].getPlateNumber().equals(plateNumber)) {
-        p = parkedCars[i];
-        p.setExitTime(LocalDateTime.now());
+      for (int j = 0; j < 3; j++) {
+        if (parkedCars[i][j].getPlateNumber().equals(plateNumber)) {
+          p = parkedCars[i][j];
+          p.setExitTime(LocalDateTime.now());
+        }
       }
     }
 

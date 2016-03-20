@@ -1,9 +1,13 @@
 package com.rollingstone.arrays.model;
 
+import java.time.LocalDateTime;
+
 public class ParkedCar {
 
   String plateNumber;
   String color;
+  LocalDateTime entryTime;
+  LocalDateTime exitTime;
 
   public ParkedCar() {
 
@@ -12,6 +16,23 @@ public class ParkedCar {
   public ParkedCar(String plateNumber, String color) {
     this.plateNumber = plateNumber;
     this.color = color;
+  }
+
+
+  public LocalDateTime getEntryTime() {
+    return entryTime;
+  }
+
+  public void setEntryTime(LocalDateTime entryTime) {
+    this.entryTime = entryTime;
+  }
+
+  public LocalDateTime getExitTime() {
+    return exitTime;
+  }
+
+  public void setExitTime(LocalDateTime exitTime) {
+    this.exitTime = exitTime;
   }
 
   public String getPlateNumber() {
